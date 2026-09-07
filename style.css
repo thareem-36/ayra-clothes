@@ -1,0 +1,525 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    color: #2c3e50;
+    letter-spacing: 2px;
+}
+
+.product-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    gap: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-section {
+    flex: 1;
+}
+
+.product-image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-details-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0;
+    justify-content: center;
+}
+
+.swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: transform 0.2s;
+}
+
+.swatch:hover {
+    transform: scale(1.15);
+}
+.swatch.lavender { background-color: #dcd0ff; }
+.swatch.purple   { background-color: #4b0082; }
+.swatch.maroon   { background-color: #800000; }
+.swatch.mustard  { background-color: #e1ad01; }
+.swatch.blue     { background-color: #1a365d; }
+
+.price {
+    font-size: 22px;
+    color: #27ae60;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.specs {
+
+    list-style: none;
+    padding: 0;
+    color: #555;
+}
+
+.specs li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.add-cart { background-color: #f39c12; color: #fff; }
+.buy-now { background-color: #e74c3c; color: #fff; }hg\
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 30px;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.cart-icon {
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #34495e;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+header h1 {
+    display: none; /* Purane header title ko hide karne ke liye */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: #f39c12;
+}
+
+.cart-icon {
+    color: #ffffff;
+    background-color: #34495e;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+/* Modal (Popup) Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+#orderForm label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#orderForm input, #orderForm textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#orderForm textarea { height: 70px; resize: none; }
+
+#orderForm button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #777;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
+.size-selection, .quantity-box {
+    margin: 12px 0;
+    text-align: left;
+}
+
+.size-selection select, .quantity-box input, #orderForm select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.quantity-box input {
+    width: 80px;
+    display: block;
+}
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/* Modal Pop-up Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-content input, 
+.modal-content select, 
+.modal-content textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* Modal Main Layout */
+/* Modal Main Layout */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Jab Buy Now click ho toh ye class active hogi */
+.modal.show {
+    display: flex !important;
+}
+.modal-content {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Product Gallery Layout */
+.product-images, 
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+/* Main Top Image */
+.main-image img, 
+#mainImg, 
+.product-images > img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Bottom Small Thumbnails Row */
+.small-img-group, 
+.thumbnail-container, 
+.small-images {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.small-img, 
+.small-img-group img, 
+.thumbnail-container img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.small-img:hover, 
+.small-img-group img:hover {
+    border-color: #000;
+    transform: scale(1.05);
+}
+/* Universal Product Images Fix */
+.product-details img,
+.product-container img,
+body img {
+    max-width: 350px !important;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+
+/* If thumbnails are inside a row */
+.small-img-row img,
+.small-img-group img,
+.small-img {
+    width: 70px !important;
+    height: 70px !important;
+    object-fit: cover;
+    display: inline-block !important;
+    margin: 5px !important;
+}
+/* Product Gallery Layout */
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Top Main Big Image */
+#mainImage {
+    width: 100%;
+    max-width: 350px !important;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Bottom Thumbnails Row */
+.thumbnail-group {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Small Thumbnail Images */
+.thumbnail-group img {
+    width: 65px !important;
+    height: 65px !important;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.thumbnail-group img:hover {
+    border-color: #000;
+    transform: scale(1.05);
+}
+/* Color Swatches Fix */
+.swatch.lavender {
+    background-color: #a7b5f0 !important; /* Pehle color circle ka light lavender shade */
+}
+
+.swatch.purple {
+    background-color: #5d2a8f !important;
+}
+
+.swatch.maroon {
+    background-color: #5c1d24 !important;
+}
+
+.swatch.mustard {
+    background-color: #dca342 !important;
+}
+
+.swatch.blue {
+    background-color: #1e3a6d !important;
+}
+/* Modal Base CSS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex !important;
+}

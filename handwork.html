@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AYRA CLOTHES - Handwork Heavy 3Piece Suit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">AYRA CLOTHES</div>
+        <nav class="nav-links">
+            <a href="product.html">Main Page</a>
+            <a href="#" onclick="openContactModal()">Contact Us</a>
+        </nav>
+
+        <!-- Cart Icon -->
+  <div class="cart-icon" onclick="document.getElementById('cartModal').style.display='flex';" style="cursor: pointer;">
+    🛒 (<span id="cartCount">0</span>)
+</div>
+</header>
+    <!-- Main Product Container -->
+    <div class="product-container">
+        <!-- Gallery Section -->
+        <div class="product-gallery">
+            <img id="mainImage" src="handwork/handwork_green.jpg" alt="Handwork Heavy Suit">
+            <div class="thumbnail-group">
+                <img src="handwork/handwork_green.jpg" onclick="changeColor('handwork/handwork_green.jpg')" alt="Green">
+                <img src="handwork/handwork_maroon.jpg" onclick="changeColor('handwork/handwork_maroon.jpg')" alt="Maroon">
+                <img src="handwork/handwork_mustard.jpg" onclick="changeColor('handwork/handwork_mustard.jpg')" alt="Mustard">
+                <img src="handwork/handwork_navy.jpg" onclick="changeColor('handwork/handwork_navy.jpg')" alt="Navy Blue">
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="product-details">
+            <h2>Handwork Nug Stone Pearls Heavy Work 3Piece Suit</h2>
+            <p class="brand">Ajwa Collection</p>
+            <p class="price">PKR 2,550</p>
+
+            <div class="specs">
+                <p><b>Shirt:</b> Organza with Heavy Nug Stone Pearls Work & Handwork</p>
+                <p><b>Shirt Size:</b> Chest 20/21" | Length 38"</p>
+                <p><b>Dupatta:</b> Organza Embroidered (2.5 Yards)</p>
+                <p><b>Trouser:</b> Crepe Stuff | Length 38"</p>
+            </div>
+
+            <div class="size-selection">
+                <label><b>Select Size:</b></label>
+                <select id="productSize">
+                    <option value="Standard (Chest 20/21)" selected>Standard (Chest 20/21 inches)</option>
+                </select>
+            </div>
+
+            <div class="quantity-box">
+                <label><b>Quantity:</b></label>
+                <input type="number" id="productQty" value="1" min="1" max="10">
+            </div>
+<div class="btn-group">
+    <button type="button" class="btn add-cart" onclick="addToCart('handwork suit', 2550)">Add to Cart</button>
+    <button type="button" class="btn buy-now" onclick="openModal()">Buy Now</button>
+</div>
+</div>
+</div>
+
+<!-- Complete Checkout Modal -->
+<div id="checkoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 9999;">
+    <div style="background: #ffffff; padding: 25px; border-radius: 8px; width: 90%; max-width: 450px; position: relative; max-height: 90vh; overflow-y: auto; color: #333;">
+        <span onclick="closeModal()" style="position: absolute; right: 15px; top: 10px; cursor: pointer; font-size: 22px; font-weight: bold;">&times;</span>
+        <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">Complete Your Order</h3>
+        <p><b>Product:</b> Handwork Heavy 3Piece Suit</p>
+        <form id="orderForm" onsubmit="handleCheckout(event)">
+            <div style="margin-bottom: 10px;">
+                <label style="display: block; font-weight: bold;">Full Name:</label>
+                <input type="text" required placeholder="Enter full name" style="width: 100%; padding: 8px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label style="display: block; font-weight: bold;">Phone Number:</label>
+                <input type="tel" required placeholder="0300-1234567" style="width: 100%; padding: 8px; box-sizing: border-box;">
+            </div>
+           <div style="margin-bottom: 10px;">
+                <label style="display: block; font-weight: bold;">Delivery Address:</label>
+                <textarea required placeholder="House #, Street, City" style="width: 100%; padding: 8px; box-sizing: border-box;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold;">Payment Method:</label>
+                <select id="paymentMethod" onchange="togglePaymentFields()" style="width: 100%; padding: 8px;">
+                    <option value="cod">Cash on Delivery (COD)</option>
+                    <option value="card">Card Payment</option>
+                </select>
+            </div>
+
+            <div id="codNotice" style="margin-bottom: 15px; background: #eef9f1; padding: 10px; border-radius: 4px; color: #27ae60; font-weight: bold; display: block;">
+                ✓ Cash on Delivery (Incl. PKR 200 Delivery Fee)
+            </div>
+
+            <button type="submit" id="submitBtn" style="width: 100%; background: #27ae60; color: white; padding: 10px; border: none; cursor: pointer; border-radius: 4px; font-weight: bold;">Confirm Order</button>
+        </form>
+    </div>
+</div>
+<!-- Cart Modal Popup -->
+<div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 9999;">
+    <div style="background: #ffffff; padding: 25px; border-radius: 8px; width: 90%; max-width: 400px; position: relative; color: #333;">
+        <span onclick="closeCartModal()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 22px; font-weight: bold;">&times;</span>
+        <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">Your Shopping Basket</h3>
+        <div id="cartItemsList" style="margin-top: 15px;">Basket is empty</div>
+        <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 10px; font-weight: bold;">
+            Total: PKR <span id="cartTotal">0</span>
+        </div>
+      <button onclick="clearCart()" style="margin-top: 15px; background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; margin-right: 8px;">Clear Basket</button>
+<button onclick="closeCartModal()" style="margin-top: 15px; background: #777; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px;">Close</button>
+    </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+// Basket Modal Open/Close Functions
+function openCartModal() {
+    let modal = document.getElementById("cartModal");
+    if (modal) modal.style.display = "flex";
+    updateCartDisplay();
+}
+
+function closeCartModal() {
+    let modal = document.getElementById("cartModal");
+    if (modal) modal.style.display = "none";
+}
+
+// Checkout Form Modal Open/Close Functions
+function openModal() {
+    let modal = document.getElementById("checkoutModal");
+    if (modal) {
+        modal.style.display = "flex";
+    }
+       togglePaymentFields(); //
+}
+
+function closeModal() {
+    let modal = document.getElementById("checkoutModal");
+    if (modal) modal.style.display = "none";
+}
+function togglePaymentFields() {
+    let methodSelect = document.getElementById("paymentMethod");
+    if (!methodSelect) return;
+
+    let method = methodSelect.value;
+    let codNotice = document.getElementById("codNotice");
+    let totalElement = document.getElementById("cartTotal");
+
+    let baseTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    if (baseTotal === 0) baseTotal = 3500;
+
+    if (method === "cod") {
+        let finalTotal = baseTotal + 200;
+        if (totalElement) totalElement.innerText = finalTotal;
+        if (codNotice) {
+            codNotice.style.display = "block";
+            codNotice.innerText = "✓ Cash on Delivery (Incl. PKR 200 Delivery Fee)";
+        }
+    } else {
+        if (totalElement) totalElement.innerText = baseTotal;
+        if (codNotice) {
+            codNotice.style.display = "none";
+        }
+    }
+}
+function clearCart() {
+    cart = [];
+    localStorage.removeItem('cartItems');
+    updateCartDisplay();
+}
+// Add to Cart Function
+function addToCart(productName, price) {
+    let existingItem = cart.find(item => item.name === productName);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name: productName, price: price, quantity: 1 });
+    }
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+    updateCartDisplay();
+    alert("Item added to cart !");
+}
+
+// Update Basket Display & Count Function
+function updateCartDisplay() {
+    let cartCount = document.getElementById("cartCount");
+    let cartTotal = document.getElementById("cartTotal");
+    let cartItemsList = document.getElementById("cartItemsList");
+
+    let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    let totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    if (cartCount) cartCount.innerText = totalItems;
+    if (cartTotal) cartTotal.innerText = totalPrice;
+
+    if (cartItemsList) {
+        if (cart.length === 0) {
+            cartItemsList.innerHTML = "<p style='text-align:center; color:#777;'>Basket is empty</p>";
+        } else {
+            let html = "<ul style='list-style: none; padding: 0;'>";
+            cart.forEach(item => {
+                html += `<li style='display: flex; justify-content: space-between; margin-bottom: 8px;'>
+                    <span><b>${item.name}</b> (x${item.quantity})</span>
+                    <span>PKR ${item.price * item.quantity}</span>
+                </li>`;
+            });
+            html += "</ul>";
+            cartItemsList.innerHTML = html;
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateCartDisplay);
+</script>
+</body>
+</html> 
+    
+         

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYRA CLOTHES - Ajwa Collection Saree</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">AYRA CLOTHES</div>
+        <nav class="nav-links">
+            <a href="product.html" class="active">Product</a>
+            <a href="#" onclick="openContactModal()">Contact Us</a>
+        </nav>
+        <div class="cart-icon" onclick="openCartModal()" style="cursor: pointer;">
+            🛒 (<span id="cartCount">0</span>)
+        </div>
+    </header>
+
+    <!-- Main Product Container -->
+    <div class="product-container">
+        <!-- Gallery Section -->
+        <div class="product-gallery">
+    <img id="mainImage" src="saree/saree_navy.jpg" alt="Ajwa Collection Saree">
+    <div class="thumbnail-group">
+        <img src="saree/saree_navy.jpg" onclick="changeColor('saree/saree_navy.jpg')" alt="Navy Blue">
+        <img src="saree/saree_maroon.jpg" onclick="changeColor('saree/saree_maroon.jpg')" alt="Maroon Red">
+        <img src="saree/saree_black.jpg" onclick="changeColor('saree/saree_black.jpg')" alt="Black">
+    </div>
+</div>
+        <!-- Details Section -->
+        <div class="product-details">
+            <h2>Ready To Wear Stitch Saree</h2>
+            <p class="brand">(Premium Quality)</p>
+            <p class="price">PKR 3,250</p>
+
+            <div class="specs">
+                <p><b>Blouse:</b> Heavy Sequence Embroidered with Pearls | Organza Fabric (Inner Attached)</p>
+                <p><b>Blouse Size:</b> Chest 21" | Length 17/18"</p>
+                <p><b>Saree:</b> Chiffon (7 Yards) with 500 Pearls Attached & Four-Side Lace Work</p>
+                <p><b>Saree Length:</b> 40/41"</p>
+                <p><b>Pettycoat:</b> Premium Silk | Length 37"</p>
+            </div>
+
+            <!-- Size & Quantity -->
+            <div class="size-selection">
+                <label><b>Select Size:</b></label>
+                <select id="productSize">
+                    <option value="Standard (Chest 21)" selected>Standard (Chest 21 inches)</option>
+                </select>
+            </div>
+
+            <div class="quantity-box">
+                <label><b>Quantity:</b></label>
+                <input type="number" id="productQty" value="1" min="1" max="10">
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="btn-group">
+                <button type="button" class="btn add-cart" onclick="addToCart('Ready To wear stitch saree' , 3250)">Add to Cart</button>
+                <button class="btn buy-now" onclick="openModal()">Buy Now</button>
+                </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal (Popup Form) -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>Complete Your Order</h3>
+            <p><b>Product:</b> Ayra Collection Stitch Saree (PKR 3,250 - Delivery Included)</p>
+
+            <form id="orderForm" onsubmit="handleCheckout(event)">
+                <div class="form-group">
+                <label>Full Name:</label>
+                <input type="text" placeholder="Enter your full name" required>
+                </div>
+             <div class="form-group">
+                <label>Phone Number:</label>
+                <input type="tel" required placeholder="03XXXXXXXXX">
+            </div>
+
+            <div class="form-group">
+                <label>City:</label>
+                <select required>
+                    <option value="">Select Your City</option>
+                    <option value="Faisalabad">Faisalabad</option>
+                    <option value="Lahore">Lahore</option>
+                    <option value="Karachi">Karachi</option>
+                    <option value="Islamabad">Islamabad</option>
+                </select>
+            </div>
+            <div class="form-group">
+          <!-- Delivery Address ke bilkul neechay -->
+<div style="margin-bottom: 15px;">
+    <label style="display: block; font-weight: bold;">Payment Method:</label>
+
+    <!-- YAHAN PASTE KAREIN -->
+    <select id="paymentMethod" onchange="togglePaymentFields()" style="width: 100%; padding: 8px;">
+        <option value="cod">Cash on Delivery (COD)</option>
+        <option value="card">Card Payment</option>
+    </select>
+
+    <div id="codNotice" style="margin-top: 10px; background: #eef9f1; padding: 10px; border-radius: 4px; color: #27ae60; font-weight: bold; display: block;">
+        ✓ Cash on Delivery (Incl. PKR 200 Delivery Fee)
+    </div>
+</div>
+
+<!-- Is ke neechay Card Payment Fields wala section hoga -->
+
+            <!-- Card Payment Fields (Hidden by default) -->
+            <div id="cardFields" style="display: none; margin-top: 10px;">
+                <div class="form-group">
+                    <label>Card Number:</label>
+                    <input type="text" placeholder="1234 5678 9101 1121">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Expiry Date:</label>
+                        <input type="text" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>CVV:</label>
+                        <input type="password" placeholder="123">
+                    </div>
+                </div>
+            </div>
+                <button type="submit" class="btn buy-now">Confirm Cash on Delivery</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeContactModal()">&times;</span>
+            <h3>Contact AYRA CLOTHES</h3>
+            <p><b>Location:</b> Faisalabad, Pakistan</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AYRA CLOTHES. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Cart Modal Popup -->
+<div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999999; justify-content: center; align-items: center;">
+    <div style="background: #ffffff; padding: 25px; border-radius: 8px; max-width: 450px; width: 90%; position: relative; color: #333333; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <span onclick="closeCartModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; font-weight: bold; cursor: pointer; color: #333;">&times;</span>
+        <h3 style="margin-top: 0; border-bottom: 2px solid #f1f1f1; padding-bottom: 10px;">Your Shopping Basket 🛒</h3>
+        
+        <div id="cartItemsList" style="margin-top: 15px; max-height: 250px; overflow-y: auto;">
+            <!-- Items show honge -->
+        </div>
+
+        <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="margin: 0;">Total: PKR <span id="cartTotal">0</span></h4>
+            <div>
+                <button onclick="clearCart()" style="background: #888; color: white; padding: 7px 12px; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px;">Clear</button>
+                <button onclick="closeCartModal(); openModal();" style="background: #27ae60; color: white; padding: 7px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+   <script>
+let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+function updateCartDisplay() {
+    let cartElement = document.getElementById("cartCount");
+    if (cartElement) {
+        let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartElement.innerText = totalCount;
+    }
+}
+
+// Product Cart mein add karne ke liye
+function addToCart(productName, price) {
+    if(!productName) productName = "Handwork Heavy 3Pc Suit";
+    if(!price) price = 3500;
+
+    let existingItem = cart.find(item => item.name === productName);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name: productName, price: price, quantity: 1 });
+    }
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+    updateCartDisplay();
+    alert("Item added to cart successfully!");
+}
+
+// Basket Open karne ke liye
+function openCartModal() {
+    let modal = document.getElementById("cartModal");
+    if (!modal) return;
+    
+    let listContainer = document.getElementById("cartItemsList");
+    let totalElement = document.getElementById("cartTotal");
+    
+    if (cart.length === 0) {
+        if (listContainer) listContainer.innerHTML = "<p style='text-align:center; color:#777;'>Your basket is empty!</p>";
+        if (totalElement) totalElement.innerText = "0";
+    } else {
+        let html = "<ul style='list-style: none; padding: 0; margin: 0;'>";
+        let grandTotal = 0;
+        cart.forEach((item) => {
+            let itemTotal = item.price * item.quantity;
+            grandTotal += itemTotal;
+            html += `<li style='display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee;'>
+                <div>
+                    <strong style='font-size: 14px;'>${item.name}</strong><br>
+                    <small style='color:#666;'>PKR ${item.price} x ${item.quantity}</small>
+                </div>
+                <div style='font-weight: bold; color: #e74c3c;'>
+                    PKR ${itemTotal}
+                </div>
+            </li>`;
+        });
+        html += "</ul>";
+        if (listContainer) listContainer.innerHTML = html;
+        if (totalElement) totalElement.innerText = grandTotal.toLocaleString();
+    }
+    modal.style.display = "flex";
+}
+
+function closeCartModal() {
+    let modal = document.getElementById("cartModal");
+    if (modal) modal.style.display = "none";
+}
+
+function clearCart() {
+    cart = [];
+    localStorage.removeItem('cartItems');
+    updateCartDisplay();
+    openCartModal();
+}
+
+function openModal() {
+    let modal = document.getElementById("checkoutModal");
+    if (modal) modal.style.display = "flex";
+
+    togglePaymentFields(); //
+}
+
+function closeModal() {
+    let modal = document.getElementById("checkoutModal");
+    if (modal) modal.style.display = "none";
+}
+
+// COD PKR 200 Toggle
+function togglePaymentFields() {
+    let methodSelect = document.getElementById("paymentMethod");
+    if (!methodSelect) return;
+    
+    let method = methodSelect.value;
+    let cardSection = document.getElementById("cardFields");
+    let codNotice = document.getElementById("codNotice");
+    let totalElement = document.getElementById("cartTotal");
+
+    if (cardSection) {
+        cardSection.style.display = (method === "card") ? "block" : "none";
+    }
+
+    let baseTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    if (baseTotal === 0) baseTotal = 3500; 
+
+    if (method === "cod") {
+        let finalTotal = baseTotal + 200;
+        if (totalElement) totalElement.innerText = finalTotal.toLocaleString() + " (Incl. PKR 200 COD)";
+        if (codNotice) codNotice.style.display = "block";
+    } else {
+        if (totalElement) totalElement.innerText = baseTotal.toLocaleString();
+        if (codNotice) codNotice.style.display = "none";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateCartDisplay);
+</script>
+</body>
+</html>

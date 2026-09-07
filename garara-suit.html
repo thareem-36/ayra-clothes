@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYRA CLOTHES - Zarri Embroidery Garara 3Pcs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">AYRA CLOTHES</div>
+        <nav class="nav-links">
+            <a href="product.html">Main Page</a>
+            <a href="#" onclick="openContactModal()">Contact Us</a>
+        </nav>
+         <div class="cart-icon" onclick="openCartModal()" style="cursor: pointer;">
+            🛒 (<span id="cartCount">0</span>)
+         </div>
+        </div>
+    </header>
+    <!-- Main Product Container -->
+    <div class="product-container" style="display: flex; flex-wrap: wrap; gap: 30px; padding: 20px; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Gallery Section -->
+        <div class="product-gallery" style="flex: 1; min-width: 300px; max-width: 450px;">
+            <img id="mainImage" src="garara/garara_maroon.jpg" alt="Garara Suit" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px;">
+            <div class="thumbnail-group" style="display: flex; gap: 10px; margin-top: 15px;">
+                <img src="garara/garara_maroon.jpg" onclick="changeColor('garara/garara_maroon.jpg')" alt="Maroon" style="width: 70px; height: 80px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;">
+                <img src="garara/garara_black.jpg" onclick="changeColor('garara/garara_black.jpg')" alt="Black" style="width: 70px; height: 80px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;">
+                <img src="garara/garara_navy.jpg" onclick="changeColor('garara/garara_navy.jpg')" alt="Navy Blue" style="width: 70px; height: 80px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="product-details" style="flex: 1; min-width: 300px;">
+            <h2 style="font-size: 20px; margin-bottom: 10px;">Neck, Sleeves Border Sequence Zarri Embroidery Short Shirt With Lace Work Garara And Thread Multi Embroidery Dupatta 3Pcs</h2>
+            <p class="brand" style="color: #666; margin-bottom: 10px;">Ajwa Collection</p>
+            <p class="price" style="font-size: 22px; font-weight: bold; color: #b12704; margin-bottom: 15px;">PKR 2,500</p>
+            <div class="specs" style="line-height: 1.6; margin-bottom: 20px;">
+                <p><b>Shirt Stuff:</b> Shamose Silk (Neck & Sleeves Border Sequence Zarri Embroidery)</p>
+                <p><b>Chest Size:</b> 20/21 inches</p>
+                <p><b>Shirt Length:</b> 35/36 inches</p>
+                <p><b>Garara Stuff:</b> Shamose Silk with Lace Work (Length 38/39 inches)</p>
+                <p><b>Dupatta Stuff:</b> Organza Thread Multi Embroidery (Size 2.5 Yards)</p>
+            </div>
+
+            <div class="size-selection" style="margin-bottom: 15px;">
+                <label><b>Select Size:</b></label><br>
+                <select id="productSize" style="padding: 8px; margin-top: 5px; width: 100%; max-width: 250px;">
+                    <option value="Standard (Chest 20/21)" selected>Standard (Chest 20/21 inches)</option>
+                </select>
+            </div>
+
+            <div class="quantity-box" style="margin-bottom: 20px;">
+                <label><b>Quantity:</b></label><br>
+                <input type="number" id="productQty" value="1" min="1" max="10" style="padding: 8px; margin-top: 5px; width: 70px;">
+            </div>
+
+            <div class="btn-group" style="display: flex; gap: 10px;">
+                <button type="button" class="btn add-cart" onclick="addToCart('Garara suit' , 2500)">Add to Cart</button>
+                <button class="btn buy-now" onclick="openModal()">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>Complete Your Order</h3>
+            <p><b>Product:</b> Zarri Embroidery Garara 3Pc Suit (<span id="modalTotalPrice">PKR 2,500</span>)</p>
+
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <label>Full Name:</label>
+                <input type="text" placeholder="Enter your full name" required>
+
+                <label>Phone Number:</label>
+                <input type="tel" placeholder="03XXXXXXXXX" required>
+
+                <label>City:</label>
+                <select id="orderCity" required>
+                    <option value="">Select Your City</option>
+                    <option value="Lahore">Lahore</option>
+                    <option value="Karachi">Karachi</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Faisalabad">Faisalabad</option>
+                    <option value="Rawalpindi">Rawalpindi</option>
+                    <option value="Multan">Multan</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label>Delivery Address:</label>
+                <textarea placeholder="Complete house address" required></textarea>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold;">Payment Method:</label>
+                <select id="paymentMethod" onchange="togglePaymentFields()" style="width: 100%; padding: 8px;">
+                    <option value="cod">Cash on Delivery (COD)</option>
+                    <option value="card">Debit / Credit Card</option>
+                </select>
+                <div id="codNotice" style="margin-top: 10px; background: #eef9f1; padding: 10px; border-radius: 4px; color: #27ae60; font-weight: bold; display: block;">
+                    ✓ Cash on Delivery (Incl. PKR 200 Delivery Fee)
+                </div>
+            </div>
+
+<!-- Card Fields (ByDefault Hide Honge) -->
+<div id="cardFields" style="display: none; background: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 12px;">
+    <label>Card Number:</label>
+    <input type="text" placeholder="1234 5678 9101 1121" style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
+    
+    <div style="display: flex; gap: 10px;">
+        <div style="flex: 1;">
+            <label>Expiry Date:</label>
+            <input type="text" placeholder="MM/YY" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+        <div style="flex: 1;">
+            <label>CVV:</label>
+            <input type="text" placeholder="123" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+    </div>
+</div>
+
+                <button type="submit" class="btn buy-now">Confirm Cash on Delivery</button>
+            </form>
+        </div>
+    </div>
+<!-- Cart Modal Popup -->
+<div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999999; justify-content: center; align-items: center;">
+    <div style="background: #ffffff; padding: 25px; border-radius: 8px; max-width: 450px; width: 90%; position: relative; color: #333333; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <span onclick="closeCartModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; font-weight: bold; cursor: pointer; color: #333;">&times;</span>
+        <h3 style="margin-top: 0; border-bottom: 2px solid #f1f1f1; padding-bottom: 10px;">Your Shopping Basket 🛒</h3>
+        
+        <div id="cartItemsList" style="margin-top: 15px; max-height: 250px; overflow-y: auto;">
+            <!-- Added Items yahan show honge -->
+        </div>
+
+        <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="margin: 0;">Total: PKR <span id="cartTotal">0</span></h4>
+            <div>
+                <button onclick="clearCart()" style="background: #888; color: white; padding: 7px 12px; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px;">Clear</button>
+                <button onclick="closeCartModal(); openModal();" style="background: #27ae60; color: white; padding: 7px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeContactModal()">&times;</span>
+            <h3>Contact AYRA CLOTHES</h3>
+            <p><b>Location:</b> Faisalabad, Pakistan</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AYRA CLOTHES. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+ 
+<script>
+    // Safe Toggle Function
+    function togglePaymentFields() {
+        let methodSelect = document.getElementById("paymentMethod");
+        let codNotice = document.getElementById("codNotice");
+        let cardFields = document.getElementById("cardFields");
+        let totalElement = document.getElementById("cartTotal");
+
+        if (!methodSelect) return;
+
+        let method = methodSelect.value;
+        let baseTotal = (typeof cart !== 'undefined' && cart.length > 0) 
+            ? cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) 
+            : 0;
+
+        if (method === "cod") {
+            let finalTotal = baseTotal + 200;
+            if (totalElement) totalElement.innerText = finalTotal;
+            if (codNotice) codNotice.style.display = "block";
+            if (cardFields) cardFields.style.display = "none";
+        } else {
+            if (totalElement) totalElement.innerText = baseTotal;
+            if (codNotice) codNotice.style.display = "none";
+            if (cardFields) cardFields.style.display = "block";
+        }
+    }
+
+    function openModal() {
+        let modal = document.getElementById("checkoutModal");
+        if (modal) modal.style.display = "flex";
+        togglePaymentFields();
+    }
+
+    function closeModal() {
+        let modal = document.getElementById("checkoutModal");
+        if (modal) modal.style.display = "none";
+    }
+</script>
+</body>
+</html>

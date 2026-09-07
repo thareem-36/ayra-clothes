@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYRA CLOTHES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+    <header class="navbar">
+        <div class="logo">AYRA CLOTHES</div>
+        <nav class="nav-links">
+            <a href="product.html" class="active">Hania Dress</a>
+            <a href="saree.html">Saree</a>
+            <a href="handwork.html">Handwork Suit</a>
+            <a href="garara-suit.html">Garara Suit</a>
+            <a href="cotton-suit.html">Bareeza Cotton</a>
+            <a href="#" onclick="openContactModal()">Contact Us</a>
+        </nav>
+        <div class="cart-icon" onclick="openCartModal()" style="cursor: pointer;"></div>
+    🛒 (<span id="cartCount">0</span>)
+</div>
+</header>
+
+     <div class="product-container">
+    <!-- Left Column: Image & Color Swatches -->
+    <div class="product-image-section">
+        <div class="image-box">
+            <img id="mainImage" src="images/Hania_lavender.jpg" alt="Hania Frock Suit">
+        </div>
+        
+        <!-- Color Selection Swatches -->
+        <div class="color-swatches">
+            <span class="swatch lavender" onclick="changeColor('images/Hania_lavender.jpg')"></span>
+            <span class="swatch purple" onclick="changeColor('images/Hania_purple.jpg')"></span>
+            <span class="swatch maroon" onclick="changeColor('images/Hania_maroon.jpg')"></span>
+            <span class="swatch mustard" onclick="changeColor('images/Hania_mustard.jpg')"></span>
+            <span class="swatch blue" onclick="changeColor('images/Hania_blue.jpg')"></span>
+        </div>
+    </div>
+
+    <!-- Right Column: Product Info & Purchase Controls -->
+    <div class="product-details-section">
+        <h2>Hania Embroidered Frock 3Pc Suit</h2>
+        <div class="price-tag">PKR 2,450</div>
+
+        <div class="specs-box">
+            <p><b>Fabric:</b> Chiffon / Organza Frock with Dupatta & Crepe Trouser</p>
+            <p><b>Chest Size:</b> 20 / 21 inches</p>
+            <p><b>Shirt Length:</b> 38 / 40 inches | <b>Trouser:</b> 38 inches</p>
+            <p><b>Dupatta:</b> 2.5 Yards Embroidered</p>
+        </div>
+
+        <div class="option-group">
+            <label>Select Size:</label>
+            <select>
+                <option>Medium (Chest 21 inches)</option>
+                <option>Large (Chest 23 inches)</option>
+            </select>
+        </div>
+
+        <div class="option-group">
+            <label>Quantity:</label>
+            <input type="number" value="1" min="1" style="width: 60px;">
+        </div>
+
+        <div class="button-group">
+            <button class="btn add-cart" onclick="addToCart('Hania embroidered frock', 2450)">Add to Cart</button>
+            <button class="btn buy-now" onclick="openModal()">Buy Now</button>
+        </div>
+    </div>
+</div>
+<!-- Contact Modal -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeContactModal()">&times;</span>
+        <h3>Contact AYRA CLOTHES</h3>
+        <p><b>Location:</b> Faisalabad, Pakistan</p>
+    </div>
+</div>
+<!--Footer -->
+<footer>
+    <p>&copy; 2026 AYRA CLOTHES.All Rights Reserved.</p>
+</footer>
+<!-- Checkout Modal (Popup Form) -->
+<div id="checkoutModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Complete Your Order</h3>
+        <p><b>Product:</b> Hania Embroidered Frock 3Pc Suit (PKR 2,650 - Delivery Included)</p>
+
+        <form id="orderForm" onsubmit="submitOrder(event)">
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter your full name" required>
+
+            <label>Phone Number:</label>
+            <input type="tel" placeholder="03XXXXXXXXX" required>
+
+            <label>City:</label>
+            <select required>
+                <option value="">Select Your City</option>
+                <option value="Faisalabad">Faisalabad</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Islamabad">Islamabad</option>
+            </select>
+
+            <label>Delivery Address:</label>
+            <textarea placeholder="Complete house address" required></textarea>
+
+            <label>Payment Method:</label>
+            <select id="paymentMethod" onchange="togglePaymentFields()" required style="width: 100%;padding: 8px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 4px;">
+              <option value="">select payment method </option> 
+                <option value="cod">Cash on Delivery (COD)</option>
+                <option value="card">Debit / Credit Card</option>
+            </select>
+            <!-- YAHAN PASTE KAREIN -->
+<p id="codNotice" style="display: none; color: #27ae60; font-size: 13px; margin-top: 5px; font-weight: bold;">
+    🚚 PKR 200 Cash on Delivery charges added!
+</p>
+
+<!-- Iske niche Card Fields wala section hoga -->
+<div id="cardFields" style="display: none; background: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 12px;">
+    ...
+</div>
+
+            <div id="cardDetails" style="display: none; margin-top: 10px;">
+                <label>Card Number:</label>
+                <input type="text" placeholder="1234 5678 9101 1121" maxlength="19">
+
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex: 1;">
+                        <label>Expiry Date:</label>
+                        <input type="text" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>CVV:</label>
+                        <input type="password" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn buy-now" style="margin-top: 15px;">Confirm Order</button>
+        </form>
+    </div>
+</div>
+<!-- Cart Modal Popup -->
+<div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999999; justify-content: center; align-items: center;">
+    <div style="background: #ffffff; padding: 25px; border-radius: 8px; max-width: 450px; width: 90%; position: relative; color: #333333; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <span onclick="closeCartModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; font-weight: bold; cursor: pointer; color: #333;">&times;</span>
+        <h3 style="margin-top: 0; border-bottom: 2px solid #f1f1f1; padding-bottom: 10px;">Your Shopping Basket 🛒</h3>
+        
+        <div id="cartItemsList" style="margin-top: 15px; max-height: 250px; overflow-y: auto;">
+            <!-- Added Items yahan show honge -->
+        </div>
+
+        <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="margin: 0;">Total: PKR <span id="cartTotal">0</span></h4>
+            <div>
+                <button onclick="clearCart()" style="background: #888; color: white; padding: 7px 12px; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px;">Clear</button>
+                <button onclick="closeCartModal(); openModal();" style="background: #27ae60; color: white; padding: 7px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+function updateCartDisplay() {
+    let cartElement = document.getElementById("cartCount");
+    if (cartElement) {
+        let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartElement.innerText = totalCount;
+    }
+}
+
+// Product add karne ke liye
+function addToCart(productName, price) {
+    if(!productName) productName = "Handwork Heavy 3Pc Suit";
+    if(!price) price = 3500;
+
+    let existingItem = cart.find(item => item.name === productName);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name: productName, price: price, quantity: 1 });
+    }
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+    updateCartDisplay();
+    alert("Item added to cart successfully!");
+    }
+
+// Basket open karne ke liye
+function openCartModal() {
+    let listContainer = document.getElementById("cartItemsList");
+    let totalElement = document.getElementById("cartTotal");
+    
+    if (cart.length === 0) {
+        listContainer.innerHTML = "<p style='text-align:center; color:#777;'>Your basket is empty!</p>";
+        totalElement.innerText = "0";
+    } else {
+        let html = "<ul style='list-style: none; padding: 0; margin: 0;'>";
+        let grandTotal = 0;
+        cart.forEach((item) => {
+            let itemTotal = item.price * item.quantity;
+            grandTotal += itemTotal;
+            html += `<li style='display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee;'>
+                <div>
+                    <strong style='font-size: 14px;'>${item.name}</strong><br>
+                    <small style='color:#666;'>PKR ${item.price} x ${item.quantity}</small>
+                </div>
+                <div style='font-weight: bold; color: #e74c3c;'>
+                    PKR ${itemTotal}
+                </div>
+            </li>`;
+        });
+        html += "</ul>";
+        listContainer.innerHTML = html;
+        totalElement.innerText = grandTotal.toLocaleString();
+    }
+    document.getElementById("cartModal").style.display = "flex";
+}
+
+function closeCartModal() {
+    document.getElementById("cartModal").style.display = "none";
+}
+
+function clearCart() {
+    cart = [];localStorage.removeItem('cartItems');
+    updateCartDisplay();
+    openCartModal();
+}
+function openModal() {
+    let modal = document.getElementById("checkoutModal");
+    if (modal) modal.style.display = "flex";
+
+    togglePaymentFields(); //
+}
+document.addEventListener("DOMContentLoaded", updateCartDisplay);
+</script>
+</body>
+</html>
