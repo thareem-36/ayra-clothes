@@ -22,14 +22,63 @@
         <div class="cart-icon" onclick="openCartModal()" style="cursor: pointer;"></div>
     🛒 (<span id="cartCount">0</span>)
 </div>
-</header>
+</header>        
 <!-- Hero Banner Section -->
 <section style="background: #f8f9fa; padding: 50px 20px; text-align: center; border-bottom: 1px solid #e0e0e0;">
   <h1 style="font-size: 32px; color: #333; margin-bottom: 10px;">Welcome to Ayra Clothes</h1>
   <p style="font-size: 18px; color: #666; margin-bottom: 20px;">Discover Premium & Elegant Traditional Wear for Every Occasion</p>
-  <a href="#categories" style="display: inline-block; padding: 12px 25px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Explore Collections</a>
+ <a href="#categories" style="display: inline-block; padding: 12px 25px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Explore Collections</a>
 </section>
+<div class="product-container">
+    <!-- Left Column: Image & Color Swatches -->
+    <div class="product-image-section">
+        <div class="image-box">
+            <img id="mainImage" src="images/Hania_lavender.jpg" alt="Hania Frock Suit">
+        </div>
+        
+        <!-- Color Selection Swatches -->
+        <div class="color-swatches">
+            <span class="swatch lavender" onclick="changeColor('images/Hania_lavender.jpg')"></span>
+            <span class="swatch purple" onclick="changeColor('images/Hania_purple.jpg')"></span>
+            <span class="swatch maroon" onclick="changeColor('images/Hania_maroon.jpg')"></span>
+            <span class="swatch mustard" onclick="changeColor('images/Hania_mustard.jpg')"></span>
+            <span class="swatch blue" onclick="changeColor('images/Hania_blue.jpg')"></span>
+        </div>
+    </div>
 
+    <!-- Right Column: Product Info & Purchase Controls -->
+    <div class="product-details-section">
+        <h2>Hania Embroidered Frock 3Pc Suit</h2>
+        <div class="price-tag">PKR 2,450</div>
+
+        <div class="specs-box">
+            <p><b>Fabric:</b> Chiffon / Organza Frock with Dupatta & Crepe Trouser</p>
+            <p><b>Chest Size:</b> 20 / 21 inches</p>
+            <p><b>Shirt Length:</b> 38 / 40 inches | <b>Trouser:</b> 38 inches</p>
+            <p><b>Dupatta:</b> 2.5 Yards Embroidered</p>
+        </div>
+
+        <div class="option-group">
+            <label>Select Size:</label>
+            <select>
+                  <select>
+                <option>Medium (Chest 21 inches)</option>
+                <option>Large (Chest 23 inches)</option>
+            </select>
+        </div>
+
+        <div class="option-group">
+            <label>Quantity:</label>
+            <input type="number" value="1" min="1" style="width: 60px;">
+        </div>
+
+        <div class="button-group">
+              <button class="btn add-cart" onclick="addToCart('Hania embroidered frock', 2450)">Add to Cart</button>
+            <button class="btn buy-now" onclick="openModal()">Buy Now</button>
+        </div>
+    </div>
+</div>
+            
 <!-- Featured Categories Grid -->
 <section id="categories" style="padding: 40px 20px; text-align: center;">
   <h2 style="font-size: 26px; color: #333; margin-bottom: 30px;">Our Collections</h2>
@@ -90,55 +139,6 @@
   <h2 style="font-size: 24px; color: #333; margin-bottom: 15px;">About Ayra Clothes</h2>
   <p style="color: #555; line-height: 1.6;">At Ayra Clothes, we bring you exquisite handwork dresses, organza suits, sarees, and classic Bareeza cotton collections crafted to make your everyday and formal occasions special.</p>
 </section>
-        
-     <div class="product-container">
-    <!-- Left Column: Image & Color Swatches -->
-    <div class="product-image-section">
-        <div class="image-box">
-            <img id="mainImage" src="images/Hania_lavender.jpg" alt="Hania Frock Suit">
-        </div>
-        
-        <!-- Color Selection Swatches -->
-        <div class="color-swatches">
-            <span class="swatch lavender" onclick="changeColor('images/Hania_lavender.jpg')"></span>
-            <span class="swatch purple" onclick="changeColor('images/Hania_purple.jpg')"></span>
-            <span class="swatch maroon" onclick="changeColor('images/Hania_maroon.jpg')"></span>
-            <span class="swatch mustard" onclick="changeColor('images/Hania_mustard.jpg')"></span>
-            <span class="swatch blue" onclick="changeColor('images/Hania_blue.jpg')"></span>
-        </div>
-    </div>
-
-    <!-- Right Column: Product Info & Purchase Controls -->
-    <div class="product-details-section">
-        <h2>Hania Embroidered Frock 3Pc Suit</h2>
-        <div class="price-tag">PKR 2,450</div>
-
-        <div class="specs-box">
-            <p><b>Fabric:</b> Chiffon / Organza Frock with Dupatta & Crepe Trouser</p>
-            <p><b>Chest Size:</b> 20 / 21 inches</p>
-            <p><b>Shirt Length:</b> 38 / 40 inches | <b>Trouser:</b> 38 inches</p>
-            <p><b>Dupatta:</b> 2.5 Yards Embroidered</p>
-        </div>
-
-        <div class="option-group">
-            <label>Select Size:</label>
-            <select>
-                <option>Medium (Chest 21 inches)</option>
-                <option>Large (Chest 23 inches)</option>
-            </select>
-        </div>
-
-        <div class="option-group">
-            <label>Quantity:</label>
-            <input type="number" value="1" min="1" style="width: 60px;">
-        </div>
-
-        <div class="button-group">
-            <button class="btn add-cart" onclick="addToCart('Hania embroidered frock', 2450)">Add to Cart</button>
-            <button class="btn buy-now" onclick="openModal()">Buy Now</button>
-        </div>
-    </div>
-</div>
 <!-- Contact Modal -->
 <div id="contactModal" class="modal">
     <div class="modal-content">
