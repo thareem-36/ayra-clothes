@@ -23,12 +23,12 @@
     <div class="product-container">
         <!-- Gallery Section -->
         <div class="product-gallery">
-            <img id="mainImage" src="handwork/handwork_green.jpg" alt="Handwork Heavy Suit">
+            <img id="mainImage" src="handwork/handwork_green.jpg" alt="Main Suit">
             <div class="thumbnail-group">
-                <img src="handwork/handwork_green.jpg" onclick="changeImage(this.src)" alt="Green">
-                <img src="handwork/handwork_maroon.jpg" onclick="changeImage(this.src)" alt="Maroon">
-                <img src="handwork/handwork_mustard.jpg" onclick="changeImage(this.src)" alt="Mustard">
-                <img src="handwork/handwork_navy.jpg" onclick="changeColor(this.src)" alt="Navy Blue">
+                <img src="handwork/handwork_green.jpg" onclick="changeImage(this.src)">
+                <img src="handwork/handwork_maroon.jpg" onclick="changeImage(this.src)">
+                <img src="handwork/handwork_mustard.jpg" onclick="changeImage(this.src)">
+                <img src="handwork/handwork_navy.jpg" onclick="changeColor(this.src)">
             </div>
         </div>
 
@@ -214,8 +214,8 @@ function updateCartDisplay() {
 }
 
 document.addEventListener("DOMContentLoaded", updateCartDisplay);
-    function changeImage(imagePath) {
-        document.getElementryById('mainImage').src = imagePath;
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
     }
 </script>
 </body>
